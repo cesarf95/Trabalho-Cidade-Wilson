@@ -1,0 +1,298 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f4f7;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Navbar fixa */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #004c99, #007bff);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.navbar h1 {
+    font-size: 22px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #ffe600;
+}
+
+/* Hero (cabeçalho) */
+.hero {
+   
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 65px;
+}
+
+/* Overlay animado no hover */
+.hero .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, rgba(103, 12, 240, 0) 0%, rgba(103, 12, 240, 0.8) 50%, rgba(103, 12, 240, 0) 100%);
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity 0.5s ease, background-position 3s ease;
+    z-index: 0;
+}
+
+.hero:hover .overlay {
+    opacity: 1;
+    background-position: 100% 0;
+}
+
+/* Texto do Hero */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero:hover .hero-content {
+    transform: scale(1.05);
+    transition: transform 0.6s ease;
+}
+
+/* Efeito de digitação */
+#titulo-animado::after {
+    content: '|';
+    animation: piscar 0.8s infinite;
+    color: #ffe600;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#subtexto {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+/* Cards */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 50px 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    width: 280px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.info-oculta {
+    display: none;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Galeria */
+.galeria {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.galeria h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.imagens {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.imagens img {
+    width: 260px;
+    border-radius: 12px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.imagens img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Curiosidades */
+.curiosidades {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.curiosidades button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.curiosidades button:hover {
+    background-color: #004c99;
+    transform: scale(1.05);
+}
+
+#curiosidade {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Rodapé */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* Revelação ao rolar */
+.card, .galeria, .curiosidades, footer {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======= ESTILO DA PÁGINA SOBRE ======= */
+.secao {
+    max-width: 1000px;
+    margin: 80px auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.secao.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.secao img {
+    width: 80%;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+/* Botão voltar */
+.voltar {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.btn-voltar {
+    background: linear-gradient(90deg, #004c99, #007bff);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.4s, transform 0.3s;
+}
+
+.btn-voltar:hover {
+    background: linear-gradient(90deg, #007bff, #004c99);
+    transform: scale(1.05);
+}
+
+/* ======= BOTÃO VOLTAR AO TOPO ======= */
+#btnTopo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #004c99, #007bff);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, transform 0.3s, visibility 0.4s;
+    z-index: 1000;
+}
+
+#btnTopo:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #007bff, #004c99);
+}
+
+/* Quando o botão estiver visível */
+#btnTopo.visivel {
+    opacity: 1;
+    visibility: visible;
+}
