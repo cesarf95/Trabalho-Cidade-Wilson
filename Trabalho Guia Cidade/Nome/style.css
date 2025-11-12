@@ -1,0 +1,119 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0a0f1f;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+/* HEADER */
+header {
+  background: #111827;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+/* LOGO CLICÁVEL */
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color .3s, transform .2s;
+}
+.logo:hover {
+  color: #00eaff;
+  transform: scale(1.05);
+}
+
+/* HISTÓRIA (inicialmente escondida) */
+.historia {
+  display: none;
+  text-align: justify;
+  margin-top: 12px;
+  line-height: 1.6;
+  background: #1a2333;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* MENU */
+nav a {
+  margin: 12px;
+  text-decoration: none;
+  color: #00eaff;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #5ad9ff;
+}
+
+/* CARDS */
+.card {
+  background: #1a2333;
+  padding: 15px;
+  margin: 15px auto;
+  width: 80%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #00eaff;
+}
+.extra {
+  display: none;
+}
+
+/* GALERIA */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.img-container {
+  perspective: 1000px;
+  text-align: center;
+  position: relative;
+}
+
+.img-container img {
+  width: 260px;
+  border-radius: 8px;
+  opacity: 0; /* Invisível inicialmente */
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* FADE IN e FADE OUT */
+.img-container:hover img {
+  opacity: 1; /* Aparece */
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #00eaff;
+}
+
+/* BOTÃO CURIOSIDADE */
+#curiosityBtn {
+  background: #00eaff;
+  color: #0a0f1f;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background .3s;
+}
+#curiosityBtn:hover {
+  background: #14c8ff;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background: #111827;
+}
