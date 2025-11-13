@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubra Londrina</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting.css'>
+  <link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting-cells.css'>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-wrap">
+      <p data-splitting>Loading....</p>
+      <div class="vertical-flip" data-splitting="cells" data-columns="10" data-rows="1" data-image="true"></div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div id="conteudo" style="display: none;">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <h1>Descubra Londrina</h1>
+      <ul>
+        <li><a href="index.html" class="ativo">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1 id="titulo-animado"></h1>
+        <p id="subtexto">Conheça curiosidades, lugares e sabores únicos da cidade.</p>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="cards-container">
+      <div class="card" onclick="mostrarInfo('pontos')">
+        <h2>Pontos Turísticos</h2>
+        <p id="pontos" class="info-oculta">
+          Lago Igapó, Jardim Botânico e o Museu Histórico Padre Carlos Weiss são alguns dos principais pontos turísticos.
+        </p>
+      </div>
+
+      <div class="card" onclick="mostrarInfo('comidas')">
+        <h2>Comidas Típicas</h2>
+        <p id="comidas" class="info-oculta">
+          Londrina é famosa pelo café, pela carne suína e pelas delícias do norte do Paraná, como o pastel e o pão de queijo artesanal.
+        </p>
+      </div>
+
+      <div class="card" onclick="mostrarInfo('eventos')">
+        <h2>Eventos da Cidade</h2>
+        <p id="eventos" class="info-oculta">
+          O Festival Internacional de Londrina (FILO) e a ExpoLondrina são os eventos mais conhecidos da cidade.
+        </p>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="galeria">
+      <h2>Galeria de Imagens</h2>
+      <div class="imagens">
+        <img src="assets/lago-igapo.jpg.jpg" alt="Lago Igapó">
+        <img src="assets/catedral.jpg.jpg" alt="Catedral de Londrina">
+        <img src="assets/jardim-botanico.jpg.jpg" alt="Jardim Botânico">
+      </div>
+    </section>
+
+    <!-- CURIOSIDADES -->
+    <section class="curiosidades">
+      <h2>Curiosidades sobre Londrina</h2>
+      <button onclick="gerarCuriosidade()">Gerar Curiosidade Aleatória</button>
+      <p id="curiosidade"></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 By César.</p>
+    </footer>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button id="btnTopo">&#8679;</button>
+
+  </div> <!-- fim do conteúdo principal -->
+
+  <!-- Scripts -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js'></script>
+  <script src='https://unpkg.com/splitting/dist/splitting.min.js'></script>
+  <script src="scripts/script.js"></script>
+</body>
+</html>
