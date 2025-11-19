@@ -1,136 +1,46 @@
-// ======= FUNÇÃO PARA MOSTRAR/OCULTAR INFORMAÇÕES DOS CARDS ======= //
-function mostrarInfo(id) {
-    const elemento = document.getElementById(id);
-    if (!elemento) return;
+// Modo escuro
+const btnDark = document.getElementById('btnDark');
+btnDark.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
 
-    if (elemento.style.display === "block") {
-        elemento.style.opacity = "0";
-        setTimeout(() => {
-            elemento.style.display = "none";
-        }, 300);
-    } else {
-        elemento.style.display = "block";
-        elemento.style.opacity = "0";
-        setTimeout(() => {
-            elemento.style.opacity = "1";
-            elemento.style.transition = "opacity 0.5s";
-        }, 50);
-    }
+// Cards toggle
+function mostrarInfo(id) {
+  const el = document.getElementById(id);
+  if (el.style.display === "block") {
+    el.style.display = "none";
+  } else {
+    el.style.display = "block";
+  }
 }
 
-// ======= LISTA DE CURIOSIDADES ======= //
+// Curiosidades
 const curiosidades = [
-    "Londrina foi fundada por britânicos e o nome significa 'Pequena Londres'.",
-    "A cidade é um dos maiores polos universitários do Paraná.",
-    "O Lago Igapó é um dos cartões-postais mais visitados da cidade.",
-    "Londrina é conhecida como a 'Capital do Café' no norte do Paraná.",
-    "A ExpoLondrina é uma das maiores feiras agropecuárias da América Latina.",
-    "A cidade foi planejada antes mesmo de ser fundada oficialmente em 1934.",
-    "O Jardim Botânico de Londrina abriga mais de 80 espécies de plantas nativas da região.",
-    "O pôr do sol no Lago Igapó é um dos mais fotografados do Paraná."
+  "Londrina é a segunda maior cidade do Paraná.",
+  "O Lago Igapó é cartão-postal da cidade.",
+  "A cidade possui diversos festivais culturais ao longo do ano.",
+  "Londrina tem clima subtropical e invernos frios.",
+  "O Jardim Botânico é um ponto turístico imperdível."
 ];
 
-// ======= GERAR CURIOSIDADE ALEATÓRIA ======= //
 function gerarCuriosidade() {
-    const curiosidadeEl = document.getElementById("curiosidade");
-    if (!curiosidadeEl) return;
-
-    const indice = Math.floor(Math.random() * curiosidades.length);
-    const curiosidadeEscolhida = curiosidades[indice];
-
-    curiosidadeEl.style.opacity = "0";
-    setTimeout(() => {
-        curiosidadeEl.textContent = curiosidadeEscolhida;
-        curiosidadeEl.style.opacity = "1";
-        curiosidadeEl.style.transition = "opacity 0.5s";
-    }, 200);
+  const aleatorio = Math.floor(Math.random() * curiosidades.length);
+  document.getElementById("curiosidade").innerText = curiosidades[aleatorio];
 }
 
-// ======= ROLAGEM SUAVE DA NAVBAR (apenas para âncoras internas) ======= //
-document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', e => {
-        const href = link.getAttribute('href');
+// Animação de digitação na página inicial
+const texto = "Conheça curiosidades, lugares e sabores únicos da cidade.";
+const titulo = document.getElementById("titulo-animado");
+let i = 0;
 
-        if (href.startsWith("#")) {
-            e.preventDefault();
-            const destino = document.querySelector(href);
-            if (destino) {
-                window.scrollTo({
-                    top: destino.offsetTop - 60,
-                    behavior: "smooth"
-                });
-            }
-        }
-    });
+function digitar() {
+  if (i < texto.length) {
+    titulo.innerHTML += texto.charAt(i);
+    i++;
+    setTimeout(digitar, 100);
+  }
+}
+
+window.addEventListener('load', () => {
+  digitar();
 });
-
-// ======= REVELAÇÃO AO ROLAR ======= //
-const elementos = document.querySelectorAll('.card, .galeria, .curiosidades, footer');
-function revelarAoRolar() {
-    const alturaJanela = window.innerHeight;
-    elementos.forEach(el => {
-        const posicao = el.getBoundingClientRect().top;
-        if (posicao < alturaJanela - 100) {
-            el.classList.add('visivel');
-        }
-    });
-}
-window.addEventListener('scroll', revelarAoRolar);
-window.addEventListener('load', revelarAoRolar);
-
-// ======= EFEITO DE DIGITAÇÃO NO TÍTULO ======= //
-window.addEventListener("load", () => {
-    const elementoTitulo = document.getElementById("titulo-animado");
-    const subtexto = document.getElementById("subtexto");
-
-    if (elementoTitulo && subtexto) {
-        const titulo = "Explore os Encantos de Londrina";
-        let indice = 0;
-
-        function digitarTitulo() {
-            if (indice < titulo.length) {
-                elementoTitulo.textContent += titulo.charAt(indice);
-                indice++;
-                setTimeout(digitarTitulo, 100);
-            } else {
-                subtexto.style.opacity = "1";
-            }
-        }
-
-        digitarTitulo();
-    }
-});
-
-// ======= REVELAR SEÇÕES NA PÁGINA SOBRE ======= //
-const secoes = document.querySelectorAll('.secao');
-function revelarSecoes() {
-    const altura = window.innerHeight;
-    secoes.forEach(secao => {
-        const topo = secao.getBoundingClientRect().top;
-        if (topo < altura - 100) {
-            secao.classList.add('visivel');
-        }
-    });
-}
-window.addEventListener('scroll', revelarSecoes);
-window.addEventListener('load', revelarSecoes);
-
-// ======= BOTÃO VOLTAR AO TOPO ======= //
-const btnTopo = document.getElementById("btnTopo");
-
-if (btnTopo) {
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
-            btnTopo.classList.add("visivel");
-        } else {
-            btnTopo.classList.remove("visivel");
-        }
-    });
-
-    btnTopo.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-}

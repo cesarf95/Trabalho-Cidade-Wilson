@@ -14,6 +14,9 @@
     <ul>
       <li><a href="index.html" class="ativo">Início</a></li>
       <li><a href="sobre.html">Sobre</a></li>
+      <li>
+        <button id="btnDark" title="Modo Escuro/Claro">🌓</button>
+      </li>
     </ul>
   </nav>
 
@@ -21,32 +24,52 @@
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Explore os Encantos de Londrina</h1>
-      <p>Conheça curiosidades, lugares e sabores únicos da cidade.</p>
+      <h1 id="titulo-animado"></h1>
     </div>
   </section>
 
   <!-- CARDS -->
   <section class="cards-container">
-    <div class="card" onclick="mostrarInfo('pontos')">
-      <h2>Pontos Turísticos</h2>
-      <p id="pontos" class="info-oculta">
-        Lago Igapó, Jardim Botânico e o Museu Histórico Padre Carlos Weiss são alguns dos principais pontos turísticos.
-      </p>
+    <div class="card-container">
+      <div class="card">
+        <div class="front-content">
+          <p>Pontos Turísticos</p>
+        </div>
+        <div class="content">
+          <p class="heading">Descubra Londrina</p>
+          <p>
+            Lago Igapó, Jardim Botânico e o Museu Histórico Padre Carlos Weiss são alguns dos principais pontos turísticos.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="card" onclick="mostrarInfo('comidas')">
-      <h2>Comidas Típicas</h2>
-      <p id="comidas" class="info-oculta">
-        Londrina é famosa pelo café, pela carne suína e pelas delícias do norte do Paraná, como o pastel e o pão de queijo artesanal.
-      </p>
+    <div class="card-container">
+      <div class="card">
+        <div class="front-content">
+          <p>Comidas Típicas</p>
+        </div>
+        <div class="content">
+          <p class="heading">Delícias Locais</p>
+          <p>
+            Londrina é famosa pelo café, pela carne suína e pelas delícias do norte do Paraná, como o pastel e o pão de queijo artesanal.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="card" onclick="mostrarInfo('eventos')">
-      <h2>Eventos da Cidade</h2>
-      <p id="eventos" class="info-oculta">
-        O Festival Internacional de Londrina (FILO) e a ExpoLondrina são os eventos mais conhecidos da cidade.
-      </p>
+    <div class="card-container">
+      <div class="card">
+        <div class="front-content">
+          <p>Eventos da Cidade</p>
+        </div>
+        <div class="content">
+          <p class="heading">Festa e Cultura</p>
+          <p>
+            O Festival Internacional de Londrina (FILO) e a ExpoLondrina são os eventos mais conhecidos da cidade.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -69,7 +92,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025.</p>
+    <p>© 2025 Desenvolvido por César TDS013.</p>
   </footer>
 
   <script src="scripts/script.js"></script>
